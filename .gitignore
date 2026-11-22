@@ -1,0 +1,7 @@
+# gitignore — campaign secrets and local state
+
+.opencode/memory/otw_campaign_state.json
+auth.jar
+*.jar
+__pycache__/
+*.pyc

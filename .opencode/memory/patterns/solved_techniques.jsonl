@@ -1,0 +1,6 @@
+{"ts":"2026-11-22T18:00:59Z","technique":"paramiko-based SSH command runner","context":"sshpass is not installed; paramiko is","commands":["python3 .opencode/memory/otw_ssh.py bandit.labs.overthewire.org 2220 bandit0 bandit0 'id'"],"verified":"AUTH_OK uid=11000(bandit0)","transfer":"Use a paramiko helper for any CTF/SSH target when sshpass is unavailable; avoids interactive password prompts and keeps credentials out of shell history."}
+{"ts": "2026-11-22T18:27:32.557933+00:00", "wargame": "bandit", "level": 26, "technique": "forced showtext shell: PTY escape more->v->vi :shell then run setuid binary", "verified": true}
+{"ts": "2026-11-22T18:27:32.557965+00:00", "wargame": "bandit", "level": 27, "technique": "git-shell repo via paramiko GIT_SSH wrapper; inspect git log -p --all", "verified": true}
+{"ts": "2026-11-22T18:27:32.557970+00:00", "wargame": "bandit", "level": 30, "technique": "password hidden in annotated git tag object (git tag -l; git show <tag>)", "verified": true}
+{"ts": "2026-11-22T18:27:32.557973+00:00", "wargame": "bandit", "level": 31, "technique": "git push with force-added ignored file; pre-receive hook prints password then rejects push", "verified": true}
+{"ts": "2026-11-22T18:27:32.557976+00:00", "wargame": "bandit", "level": 32, "technique": "uppercase shell escape via $0 (no letters to uppercase) spawns real sh", "verified": true}

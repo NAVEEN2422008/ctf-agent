@@ -1,0 +1,2 @@
+{"ts":"2026-11-22T18:00:59Z","target":"vortex.labs.overthewire.org:2222","blocker":"TCP connect timed out on two probes","status":"unresolved","note":"Do not declare dead — sandbox DNS/filtering is known to produce false negatives (lesson L0001). Revisit after other tracks."}
+{"ts":"2026-11-22T18:00:59Z","target":"drifter.labs.overthewire.org:2222","blocker":"Probed wrong port; official page specifies 2230","status":"resolved","note":"Correct port 2230 is OPEN with OpenSSH banner. Lesson: read the official game page for the port before probing."}
