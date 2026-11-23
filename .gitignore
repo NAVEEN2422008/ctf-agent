@@ -1,7 +1,60 @@
-# gitignore — campaign secrets and local state
+# ─────────────────────────────────────────────────────────────────────────────
+# ctf-agent — STRICT secret / privacy exclusions
+# Nothing matching these patterns may EVER be staged or pushed.
+# ─────────────────────────────────────────────────────────────────────────────
 
+# Explicitly forbidden session / credential state
+.opencode/.worker_session.json
+.opencode/.worker_specs.json
 .opencode/memory/otw_campaign_state.json
+**/otw_campaign_state.json
+notes/.otw_session_creds.tmp
+
+# Generic secret carriers
+.env
+.env.*
+*.key
+*.pem
+*auth*
+*secret*
+*token*
+*.p12
+*.pfx
+*.crt
+*.der
+id_rsa*
+id_ed25519*
+.htpasswd
+.netrc
+.git-credentials
+gh_hosts.yml
+
+# Local auth cookie jars / CTF platform secrets
 auth.jar
 *.jar
+
+# Runtime state, caches, dependencies
 __pycache__/
 *.pyc
+*.pyo
+node_modules/
+.venv/
+venv/
+.opencode/bin/
+*.log
+*.tmp
+*.swp
+
+# Live CTF workspace artifacts (not part of the agent setup)
+dl/
+js/
+jsl/
+*.html
+rsc.txt
+headers.txt
+chal.json
+filelist.txt
+flags/
+
+# Nested git metadata from vendored MCP sources
+**/.git/

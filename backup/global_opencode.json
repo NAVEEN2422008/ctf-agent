@@ -1,0 +1,264 @@
+{
+  "$schema": "https://opencode.ai/config.json",
+  "username": "naveenkumar",
+  "model": "anthropic/claude-sonnet-4-6",
+  "small_model": "anthropic/claude-sonnet-4-6",
+  "default_agent": "ghost-operator",
+  "shell": "/bin/zsh",
+  "logLevel": "WARN",
+  "share": "disabled",
+  "autoupdate": false,
+  "snapshot": true,
+
+  "instructions": ["AGENTS.md"],
+
+  "skills": {
+    "paths": [".opencode/skills", "~/.config/opencode/skills"]
+  },
+
+  "agent": {
+    "ghost-operator": {
+      "description": "THE ULTIMATE autonomous offensive security operator. Self-configuring, self-healing, anonymity-enforced, verification-driven elite hacker agent.",
+      "mode": "primary",
+      "model": "opencode/big-pickle",
+      "color": "#ff0000",
+      "steps": 50,
+      "options": { "temperature": 0.3, "top_p": 0.9 },
+      "permission": { "edit": "allow", "bash": { "*": "allow" } }
+    },
+    "autonomous-hacker": {
+      "description": "Fully autonomous elite offensive security engineer with self-configuration and verification capabilities.",
+      "mode": "subagent",
+      "model": "anthropic/claude-sonnet-4-6",
+      "color": "#ff4444",
+      "permission": { "edit": "allow", "bash": { "*": "allow" } }
+    },
+    "security-auditor": {
+      "description": "Advanced ethical hacker and security analysis agent for vulnerability assessments and code hardening.",
+      "mode": "subagent",
+      "model": "anthropic/claude-sonnet-4-6",
+      "color": "#ff8800",
+      "permission": { "edit": "allow", "bash": { "*": "allow" } }
+    },
+    "recon": {
+      "description": "Reconnaissance specialist for OSINT, subdomain enumeration, port scanning, and service discovery.",
+      "mode": "subagent",
+      "model": "anthropic/claude-sonnet-4-6",
+      "color": "#0000ff",
+      "permission": {
+        "edit": "deny",
+        "bash": { "subfinder": "allow", "httpx": "allow", "naabu": "allow", "dnsx": "allow", "nmap": "allow", "katana": "allow", "curl": "allow", "wget": "allow", "*": "allow" }
+      }
+    },
+    "webapp": {
+      "description": "Web application security specialist for OWASP Top 10 testing, fuzzing, injection attacks.",
+      "mode": "subagent",
+      "model": "anthropic/claude-sonnet-4-6",
+      "color": "#00ff00",
+      "permission": {
+        "edit": "deny",
+        "bash": { "ffuf": "allow", "nuclei": "allow", "sqlmap": "allow", "nikto": "allow", "curl": "allow", "python3": "allow", "*": "allow" }
+      }
+    },
+    "binary": {
+      "description": "Binary exploitation specialist for reverse engineering, buffer overflows, ROP chains.",
+      "mode": "subagent",
+      "model": "anthropic/claude-sonnet-4-6",
+      "color": "#ffff00",
+      "permission": {
+        "edit": "deny",
+        "bash": { "gdb": "allow", "python3": "allow", "ROPgadget": "allow", "one_gadget": "allow", "objdump": "allow", "readelf": "allow", "file": "allow", "strings": "allow", "ltrace": "allow", "strace": "allow", "*": "allow" }
+      }
+    },
+    "exploit": {
+      "description": "Exploitation framework specialist for payload delivery, post-exploitation, C2 infrastructure.",
+      "mode": "subagent",
+      "model": "anthropic/claude-sonnet-4-6",
+      "color": "#ff0000",
+      "permission": { "edit": "allow", "bash": { "msfconsole": "allow", "msfvenom": "allow", "netexec": "allow", "chisel": "allow", "ligolo-ng": "allow", "responder": "allow", "python3": "allow", "ssh": "allow", "*": "allow" } }
+    },
+    "cloud": {
+      "description": "Cloud security specialist for AWS, Azure, GCP penetration testing and misconfigurations.",
+      "mode": "subagent",
+      "model": "anthropic/claude-sonnet-4-6",
+      "color": "#00ffff",
+      "permission": { "edit": "allow", "bash": { "aws": "allow", "az": "allow", "gcloud": "allow", "kubectl": "allow", "docker": "allow", "podman": "allow", "*": "allow" } }
+    },
+    "api": {
+      "description": "API security specialist for REST, GraphQL, gRPC testing following OWASP API Top 10.",
+      "mode": "subagent",
+      "model": "anthropic/claude-sonnet-4-6",
+      "color": "#ff00ff",
+      "permission": { "edit": "allow", "bash": { "curl": "allow", "jq": "allow", "ffuf": "allow", "sqlmap": "allow", "python3": "allow", "*": "allow" } }
+    },
+    "forensics": {
+      "description": "Digital forensics specialist for evidence collection, memory/disk analysis, incident response.",
+      "mode": "subagent",
+      "model": "anthropic/claude-sonnet-4-6",
+      "color": "#ffffff",
+      "permission": { "edit": "allow", "bash": { "volatility": "allow", "tshark": "allow", "tcpdump": "allow", "dd": "allow", "sha256sum": "allow", "file": "allow", "*": "allow" } }
+    },
+    "malware": {
+      "description": "Malware analysis specialist for static/dynamic analysis, reverse engineering, threat intel.",
+      "mode": "subagent",
+      "model": "anthropic/claude-sonnet-4-6",
+      "color": "#ff0000",
+      "permission": { "edit": "allow", "bash": { "yara": "allow", "file": "allow", "strings": "allow", "objdump": "allow", "readelf": "allow", "python3": "allow", "*": "allow" } }
+    },
+    "blue": {
+      "description": "Blue Team specialist for threat hunting, SIEM analysis, incident response, hardening.",
+      "mode": "subagent",
+      "model": "anthropic/claude-sonnet-4-6",
+      "color": "#0000ff",
+      "permission": { "edit": "allow", "bash": { "grep": "allow", "awk": "allow", "sed": "allow", "journalctl": "allow", "systemctl": "allow", "cat": "allow", "tcpdump": "allow", "tshark": "allow", "*": "allow" } }
+    },
+    "opsec": {
+      "description": "OPSEC specialist for anonymity, proxy management, log evasion, and operational security.",
+      "mode": "subagent",
+      "model": "anthropic/claude-sonnet-4-6",
+      "color": "#ff0000",
+      "permission": { "edit": "allow", "bash": { "*": "allow" } }
+    },
+    "ctf-lead": {
+      "description": "CTF Orchestrator: plans engagement strategy, assigns challenges, coordinates multi-agent workflow, and maintains scope boundaries. Uses the most powerful available NVIDIA NIM model.",
+      "mode": "primary",
+      "model": "nvidia/nemotron-3-ultra-550b-a55b",
+      "color": "#800080",
+      "steps": 50,
+      "options": { "temperature": 0.1, "top_p": 0.95 },
+      "permission": { "edit": "allow", "bash": { "*": "allow" } }
+    },
+    "ctf-triage": {
+      "description": "CTF Fast Recon: quick port scans, service detection, live host verification, subdomain enumeration. Optimized for speed under ~40 RPM constraint.",
+      "mode": "subagent",
+      "model": "nvidia/nemotron-3.5-lightning-30b-a3b",
+      "color": "#0000ff",
+      "permission": { "edit": "deny", "bash": { "nmap": "allow", "subfinder": "allow", "httpx": "allow", "dnsx": "allow", "naabu": "allow", "curl": "allow", "*": "allow" } }
+    },
+    "ctf-web": {
+      "description": "CTF Web specialist: OWASP Top 10 testing, fuzzing, SQL injection, XSS, authentication bypass. Uses flash-optimized NVIDIA model.",
+      "mode": "subagent",
+      "model": "minimaxai/minimax-m3.1-flash",
+      "color": "#00ff00",
+      "permission": { "edit": "deny", "bash": { "ffuf": "allow", "nuclei": "allow", "sqlmap": "allow", "nikto": "allow", "curl": "allow", "python3": "allow", "*": "allow" } }
+    },
+    "ctf-pwn-rev": {
+      "description": "CTF Pwn/Reverse Engineering: binary exploitation, RE, buffer overflows, ROP chains. Uses flash-optimized NVIDIA model.",
+      "mode": "subagent",
+      "model": "minimaxai/minimax-m3.1-flash",
+      "color": "#ffa500",
+      "permission": { "edit": "deny", "bash": { "gdb": "allow", "python3": "allow", "ROPgadget": "allow", "one_gadget": "allow", "objdump": "allow", "readelf": "allow", "file": "allow", "strings": "allow", "strace": "allow", "*": "allow" } }
+    },
+    "ctf-crypto": {
+      "description": "CTF Crypto specialist: classical cryptography, modern crypto, analysis. Uses flash-optimized NVIDIA model.",
+      "mode": "subagent",
+      "model": "minimaxai/minimax-m3.1-flash",
+      "color": "#ff69b4",
+      "permission": { "edit": "deny", "bash": { "python3": "allow", "openssl": "allow", "jq": "allow", "*": "allow" } }
+    },
+    "ctf-forensics": {
+      "description": "CTF Forensics: stego, carving, memory analysis, incident response. Multimodal NVIDIA model for image/video analysis.",
+      "mode": "subagent",
+      "model": "nvidia/nemotron-3.5-super-vl-120b-a12b",
+      "color": "#ffffff",
+      "permission": { "edit": "allow", "bash": { "binwalk": "allow", "exiftool": "allow", "foremost": "allow", "tshark": "allow", "volatility": "allow", "yara": "allow", "*": "allow" } }
+    },
+    "ctf-worker-dispatch": {
+      "description": "CTF Worker Dispatch: manages Tailscale funnel reverse-pull worker system, job broker, remote task offloading. Uses flash-optimized NVIDIA model.",
+      "mode": "subagent",
+      "model": "minimaxai/minimax-m3.1-flash",
+      "color": "#ffff00",
+      "permission": { "edit": "allow", "bash": { "python3": "allow", "tailscale": "allow", "curl": "allow", "*": "allow" } }
+    }
+  },
+
+  "command": {
+    "recon": { "description": "Full reconnaissance pipeline", "agent": "recon", "template": "opencode agent recon {target}" },
+    "scan": { "description": "Nmap service scan", "agent": "recon", "template": "opencode agent scan {target}" },
+    "fuzz": { "description": "Directory fuzzing with ffuf", "agent": "webapp", "template": "opencode agent fuzz {url}" },
+    "vuln": { "description": "Nuclei vulnerability scan", "agent": "webapp", "template": "opencode agent vuln {url}" },
+    "enum": { "description": "Service enumeration", "agent": "recon", "template": "opencode agent enum {target}" },
+    "exploit": { "description": "Exploitation workflow", "agent": "exploit", "template": "opencode agent exploit {target}" },
+    "pivot": { "description": "Network pivoting setup", "agent": "exploit", "template": "opencode agent pivot {target}" },
+    "privesc": { "description": "Privilege escalation analysis", "agent": "exploit", "template": "opencode agent privesc {target}" },
+    "hash": { "description": "Hash cracking workflow", "agent": "exploit", "template": "opencode agent hash {hash}" },
+    "cloud": { "description": "Cloud security assessment", "agent": "cloud", "template": "opencode agent cloud {provider}" },
+    "api": { "description": "API security testing", "agent": "api", "template": "opencode agent api {url}" },
+    "ad": { "description": "Active Directory attack paths", "agent": "exploit", "template": "opencode agent ad {domain}" },
+    "forensics": { "description": "Digital forensics analysis", "agent": "forensics", "template": "opencode agent forensics {evidence}" },
+    "malware": { "description": "Malware analysis", "agent": "malware", "template": "opencode agent malware {file}" },
+    "opsec": { "description": "OPSEC and anonymity setup", "agent": "opsec", "template": "opencode agent opsec {target}" },
+    "report": { "description": "Generate security report", "agent": "ghost-operator", "template": "opencode agent report {report}" },
+    "self-config": { "description": "Self-configure environment", "agent": "ghost-operator", "template": "opencode agent self-config" },
+    "self-heal": { "description": "Self-heal broken dependencies", "agent": "ghost-operator", "template": "opencode agent self-heal" },
+    "verify": { "description": "Run full verification matrix", "agent": "ghost-operator", "template": "opencode agent verify" },
+    "full-pentest": { "description": "Complete penetration test workflow", "agent": "ghost-operator", "template": "opencode agent full-pentest {target}" },
+    "pivot-setup": { "description": "Setup chisel/ligolo pivoting", "agent": "exploit", "template": "opencode agent pivot-setup {target}" },
+    "ad-enum": { "description": "Active Directory enumeration", "agent": "exploit", "template": "opencode agent ad-enum {domain}" },
+    "cloud-enum": { "description": "Cloud resource enumeration", "agent": "cloud", "template": "opencode agent cloud-enum {provider}" },
+    "ctf-lead": { "description": "CTF Orchestrator workflow", "agent": "ctf-lead", "template": "opencode agent ctf-lead {objective}" },
+    "ctf-triage": { "description": "CTF fast reconnaissance", "agent": "ctf-triage", "template": "opencode agent ctf-triage {target}" },
+    "ctf-web": { "description": "CTF web application testing", "agent": "ctf-web", "template": "opencode agent ctf-web {url}" },
+    "ctf-pwn-rev": { "description": "CTF pwn/reverse engineering", "agent": "ctf-pwn-rev", "template": "opencode agent ctf-pwn-rev {target}" },
+    "ctf-crypto": { "description": "CTF cryptanalysis", "agent": "ctf-crypto", "template": "opencode agent ctf-crypto {ciphertext}" },
+    "ctf-forensics": { "description": "CTF forensic analysis", "agent": "ctf-forensics", "template": "opencode agent ctf-forensics {evidence}" },
+    "ctf-worker-dispatch": { "description": "CTF worker dispatch (Tailscale funnel)", "agent": "ctf-worker-dispatch", "template": "opencode agent ctf-worker-dispatch {command}" }
+  },
+
+  "mcp": {
+    "filesystem": {
+      "type": "local",
+      "command": ["npx", "-y", "@modelcontextprotocol/server-filesystem", "/tmp", "/home/naveenkumar", "/opt"],
+      "enabled": true
+    },
+    "memory": {
+      "type": "local",
+      "command": ["npx", "-y", "@modelcontextprotocol/server-memory"],
+      "enabled": true
+    },
+    "sequential-thinking": {
+      "type": "local",
+      "command": ["npx", "-y", "@modelcontextprotocol/server-sequential-thinking"],
+      "enabled": true
+    },
+    "playwright": {
+      "type": "local",
+      "command": ["npx", "-y", "@playwright/mcp"],
+      "enabled": true
+    },
+    "security-tools": {
+      "type": "local",
+      "command": ["python3", "/home/naveenkumar/.config/opencode/mcp/security-tools/server.py"],
+      "enabled": true
+    },
+    "ghost-intel": {
+      "type": "local",
+      "command": ["python3", "/home/naveenkumar/.config/opencode/mcp/ghost-intel/server.py"],
+      "enabled": true
+    },
+    "ghost-web": {
+      "type": "local",
+      "command": ["python3", "/home/naveenkumar/.config/opencode/mcp/ghost-web/server.py"],
+      "enabled": true
+    },
+    "ghost-network": {
+      "type": "local",
+      "command": ["python3", "/home/naveenkumar/.config/opencode/mcp/ghost-network/server.py"],
+      "enabled": true
+    },
+    "cve-search": {
+      "type": "local",
+      "command": ["uv", "--directory", "/home/naveenkumar/.config/opencode/mcp/cve-search_mcp", "run", "main.py"],
+      "enabled": true
+    }
+  },
+
+  "permission": {
+    "edit": "allow",
+    "bash": { "*": "allow" },
+    "external_directory": { "*": "allow" }
+  },
+
+  "compaction": { "auto": true, "tail_turns": 25 },
+  "tool_output": { "max_lines": 500, "max_bytes": 16384 }
+}
