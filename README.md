@@ -38,6 +38,7 @@ No credentials, session state, or API keys are stored here.
 | `.opencode/skills/` | 20 specialized skills |
 | `.opencode/scripts/` | Worker broker/manager and benchmark scripts |
 | `.opencode/memory/` | Patterns, research notes, playbooks, templates, benchmark reports, OTW helpers |
+| `playbooks/` | Campaign playbooks (e.g. Bandit) |
 | `cyber-lessons/` | Durable cross-session lesson store |
 | `notes/` | OverTheWire recon, self-evaluation, and self-improvement reports |
 | `AGENTS.md`, `INSTALLED_TOOLS.md` | Workspace conventions and verified tool inventory |
@@ -110,7 +111,7 @@ notes/playbooks/config changes, commits a timestamped snapshot, and pushes to
 | Skills | 20 |
 | Worker/benchmark scripts | 5 |
 | Research notes & reports | 4 |
-| Playbooks | 1 |
+| Playbooks | 2 |
 | Pattern files / entries | 2 / 8 |
 | Solved techniques logged | 31 |
 | Durable lessons (`cyber-lessons`) | 10 |
