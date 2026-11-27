@@ -47,6 +47,7 @@ venv/
 
 # Live CTF workspace artifacts (not part of the agent setup)
 dl/
+artifacts/
 js/
 jsl/
 *.html
